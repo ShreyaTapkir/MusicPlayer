@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonu Nigam</title>
+    <link rel="stylesheet" href="../singers.css">
+    <link rel="stylesheet" href="../all.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap" rel="stylesheet">
+   
+</head>
+
+<body>
+    <div class="maindiv">
+        <div class="container">
+            <div class="heading">
+                <h1>Sonu Nigam</h1>
+            </div>
+            <div class="image">
+                <img src="images/Son.jpg">
+            </div>
+            <div class="bt">
+                <button id="play">Play</button>
+               
+            </div>
+            <audio src="songs/ar1.mp3">
+            </audio>
+            <div class="playlist">
+                <div class="song" >
+
+                    <img src="images/ar1.jpg">
+                    <span>Shukran Allah</span>
+                    
+                    
+                </div>
+                <div class="song">
+
+                    <img src="images/ar2.jpg">
+                    <span>Kal ho na ho</span>
+                    
+                    
+                </div>
+               <div class="song">
+
+                    <img src="images/ar3.jpg">
+                    <span>Kabhi alvida na kehna</span>
+                    
+                    
+                </div>
+                <div class="song">
+
+                    <img src="images/ar4.jpg">
+                    <span>Dil ne yeh kaha hai dil se</span>
+                   
+                </div>
+                <div class="song">
+
+                    <img src="images/ar5.jpg">
+                    <span>Main agar kahoon</span>
+                   
+                    
+                </div>
+                <div class="song">
+
+                    <img src="images/ar6.jpg">
+                    <span>Jaane nahi denge tujhe</span>
+                    
+                </div>
+                <div class="song">
+
+                    <img src="images/ar7.jpg">
+                    <span>Tumse milke dil ka</span>
+                    
+                    
+                </div>
+                <div class="song">
+
+                    <img src="images/ar8.jpg">
+                    <span>Soniyo</span>
+                    
+                    
+                </div>
+                <div class="song">
+
+                    <img src="images/ar9.jpg">
+                    <span>Deewana hai dekho</span>
+                   
+                    
+                </div>
+                <div class="song">
+
+                    <img src="images/ar10.jpg">
+                    <span>zoobi doobi</span>
+                    
+                    
+                </div>
+                <div class="song">
+
+                    <img src="images/ar11.jpg">
+                    <span>Maana ke hum yaar nahi</span>
+                    
+                    
+                </div>
+                <div class="song">
+
+                    <img src="images/ar12.jpg">
+                    <span>Pyaar ki ek kahani</span>
+                   
+                    
+                </div>
+                <div class="song">
+
+                    <img src="images/ar13.jpg">
+                    <span>Mere haath mein</span>
+                   
+                    
+                </div>
+               
+              
+            </div>
+            <div id="songplay"> 
+                <img id="simage" src="images/ar1.jpg">
+                <span id="songname">Shukran Allah</span>
+                <span id="ic"> <i class="fa fa-play" id="icon" aria-hidden="true"></i></span>
+                
+          </div>
+        </div>
+    </div>
+    <script>
+       
+       const music=document.querySelector("audio");
+       const icon=document.getElementById("icon");
+       const play=document.getElementById("play");
+       const img=document.getElementById("simage")
+       const sname=document.getElementById("songname");
+       const sound=document.querySelectorAll(".playlist div");
+       const songs=[
+           {
+           name:"ar1",
+           sname:"Shukran Allah",
+           },
+           {
+            name:"ar2",
+            sname:"Kal ho na ho",
+           },
+           {
+            name:"ar3",
+            sname:"Kabhi alvida na kehna", 
+           },
+           {
+            name:"ar4",
+            sname:"Dil ne yeh kaha hai dil se", 
+           },
+           {
+            name:"ar5",
+            sname:"Main agar kahoon", 
+           },
+           {
+            name:"ar6",
+            sname:"Jaane nahi denge tujhe", 
+           },
+           {
+            name:"ar7",
+            sname:"Tumse milke dil ka", 
+           },
+           {
+            name:"ar8",
+            sname:"Soniyo", 
+           },
+           {
+            name:"ar9",
+            sname:"Deewana hai dekho", 
+           },
+           {
+            name:"ar10",
+            sname:"zoobi doobi", 
+           },
+           {
+            name:"ar11",
+            sname:"Maana ke hum yaar nahi", 
+           },
+           {
+            name:"ar12",
+            sname:"Pyaar ki ek kahani", 
+           },
+           {
+            name:"ar13",
+            sname:"Mere haath mein", 
+           },
+           
+           ];
+       
+       let isplaying=false;
+       const playmusic=()=>{
+           isplaying=true;
+           music.play();
+           icon.classList.replace("fa-play","fa-pause");
+       };
+       const pausemusic=()=>{
+           isplaying=false;
+           music.pause();
+           icon.classList.replace("fa-pause","fa-play");
+       };
+       play.addEventListener("click",()=>{
+             
+             songindex=0;
+             loadsong(songs[songindex]);
+              playmusic();
+          
+       });
+       icon.addEventListener("click",()=>{
+           if(isplaying){
+               pausemusic();
+
+           }
+           else{
+               playmusic();
+           }
+       });
+
+      const loadsong=(songs)=>{
+        sname.textContent=songs.sname;
+        music.src = "songs/" + songs.name + ".mp3";
+        img.src= "images/" + songs.name + ".jpg";
+      };
+      
+      const nextsong=()=>{
+          songindex=(songindex+1)%songs.length;
+          loadsong(songs[songindex]);
+          playmusic();
+      }
+    
+      sound.forEach((song,index)=>{
+          song.addEventListener("click",function(){
+            
+            loadsong(songs[index]);
+            playmusic();
+            songindex=index;
+          })
+       
+      });
+    music.addEventListener("ended",nextsong);
+    
+    </script>
+</body>
+
+</html>

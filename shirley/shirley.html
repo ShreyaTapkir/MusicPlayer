@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shirley Setia</title>
+    <link rel="stylesheet" href="../singers.css">
+    <link rel="stylesheet" href="../all.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap" rel="stylesheet">
+   
+</head>
+
+<body>
+    <div class="maindiv">
+        <div class="container">
+            <div class="heading">
+                <h1>Shirley Setia</h1>
+            </div>
+            <div class="image">
+                <img src="images/shirley.jpg">
+            </div>
+            <div class="bt">
+                <button id="play">Play</button>
+               
+            </div>
+            <audio src="songs/ar1.mp3">
+            </audio>
+            <div class="playlist">
+                <div class="song" >
+
+                    <img src="images/ar1.jpg">
+                    <span>Chal wahan jaate hai</span>
+                    
+                    
+                </div>
+                <div class="song">
+
+                    <img src="images/ar2.jpg">
+                    <span>Tum se hi</span>
+                    
+                    
+                </div>
+               <div class="song">
+
+                    <img src="images/ar3.jpg">
+                    <span>Main hoon hero tera</span>
+                    
+                    
+                </div>
+                <div class="song">
+
+                    <img src="images/ar4.jpg">
+                    <span>Sanam re</span>
+                   
+                </div>
+                <div class="song">
+
+                    <img src="images/ar5.jpg">
+                    <span>Tu jo mila - Raabta</span>
+                   
+                    
+                </div>
+                <div class="song">
+
+                    <img src="images/ar6.jpg">
+                    <span>Koi vi nahi</span>
+                    
+                </div>
+                <div class="song">
+
+                    <img src="images/ar7.jpg">
+                    <span>Naiyo jaana</span>
+                    
+                    
+                </div>
+                <div class="song">
+
+                    <img src="images/ar8.jpg">
+                    <span>Baarish</span>
+                    
+                    
+                </div>
+                <div class="song">
+
+                    <img src="images/ar9.jpg">
+                    <span>Tu zaroori</span>
+                    
+                    
+                </div>
+                <div class="song">
+
+                    <img src="images/ar10.jpg">
+                    <span>Har kisi ko</span>
+                    
+                    
+                </div>
+               
+               
+              
+            </div>
+            <div id="songplay"> 
+                <img id="simage" src="images/ar1.jpg">
+                <span id="songname">Chal wahan jaate hai</span>
+                <span id="ic"> <i class="fa fa-play" id="icon" aria-hidden="true"></i></span>
+                
+          </div>
+        </div>
+    </div>
+    <script>
+       
+       const music=document.querySelector("audio");
+       const icon=document.getElementById("icon");
+       const play=document.getElementById("play");
+       const img=document.getElementById("simage")
+       const sname=document.getElementById("songname");
+       const sound=document.querySelectorAll(".playlist div");
+       const songs=[
+           {
+           name:"ar1",
+           sname:"Chal wahan jaate hai",
+           },
+           {
+            name:"ar2",
+            sname:"Tum se hi",
+           },
+           {
+            name:"ar3",
+            sname:"Main hoon hero tera", 
+           },
+           {
+            name:"ar4",
+            sname:"Sanam re", 
+           },
+           {
+            name:"ar5",
+            sname:"Tu jo mila - Raabta", 
+           },
+           {
+            name:"ar6",
+            sname:"Koi vi nahi", 
+           },
+           {
+            name:"ar7",
+            sname:"Naiyo jaana", 
+           },
+           {
+            name:"ar8",
+            sname:"Baarish", 
+           },
+           {
+            name:"ar9",
+            sname:"Tu zaroori", 
+           },
+           {
+            name:"ar10",
+            sname:"Har kisi ko", 
+           },
+           
+           ];
+       
+       let isplaying=false;
+       const playmusic=()=>{
+           isplaying=true;
+           music.play();
+           icon.classList.replace("fa-play","fa-pause");
+       };
+       const pausemusic=()=>{
+           isplaying=false;
+           music.pause();
+           icon.classList.replace("fa-pause","fa-play");
+       };
+       play.addEventListener("click",()=>{
+             
+             songindex=0;
+             loadsong(songs[songindex]);
+              playmusic();
+          
+       });
+       icon.addEventListener("click",()=>{
+           if(isplaying){
+               pausemusic();
+
+           }
+           else{
+               playmusic();
+           }
+       });
+
+      const loadsong=(songs)=>{
+        sname.textContent=songs.sname;
+        music.src = "songs/" + songs.name + ".mp3";
+        img.src= "images/" + songs.name + ".jpg";
+      };
+      
+      const nextsong=()=>{
+          songindex=(songindex+1)%songs.length;
+          loadsong(songs[songindex]);
+          playmusic();
+      }
+    
+      sound.forEach((song,index)=>{
+          song.addEventListener("click",function(){
+            
+            loadsong(songs[index]);
+            playmusic();
+            songindex=index;
+          })
+       
+      });
+    music.addEventListener("ended",nextsong);
+    
+    </script>
+</body>
+
+</html>

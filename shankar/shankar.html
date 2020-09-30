@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shankar Mahadevan</title>
+    <link rel="stylesheet" href="../singers.css">
+    <link rel="stylesheet" href="../all.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap" rel="stylesheet">
+   
+</head>
+
+<body>
+    <div class="maindiv">
+        <div class="container">
+            <div class="heading">
+                <h1>Shankar Mahadevan</h1>
+            </div>
+            <div class="image">
+                <img src="images/Shankar.jpg">
+            </div>
+            <div class="bt">
+                <button id="play">Play</button>
+               
+            </div>
+            <audio src="songs/ar1.mp3">
+            </audio>
+            <div class="playlist">
+                <div class="song" >
+
+                    <img src="images/ar1.jpg">
+                    <span>Mitwa</span>
+                    
+                    
+                </div>
+                <div class="song">
+
+                    <img src="images/ar2.jpg">
+                    <span>Dil chahta hai</span>
+                    
+                    
+                </div>
+               <div class="song">
+
+                    <img src="images/ar3.jpg">
+                    <span>Sajda</span>
+                    
+                    
+                </div>
+                <div class="song">
+
+                    <img src="images/ar4.jpg">
+                    <span>Breathless</span>
+                   
+                </div>
+                <div class="song">
+
+                    <img src="images/ar5.jpg">
+                    <span>Tere naina</span>
+                   
+                    
+                </div>
+                <div class="song">
+
+                    <img src="images/ar6.jpg">
+                    <span>Dilbaro</span>
+                    
+                </div>
+                <div class="song">
+
+                    <img src="images/ar7.jpg">
+                    <span>pretty women</span>
+                    
+                    
+                </div>
+                <div class="song">
+
+                    <img src="images/ar8.jpg">
+                    <span>Desi girl</span>
+                    
+                    
+                </div>
+                <div class="song">
+
+                    <img src="images/ar9.jpg">
+                    <span>Maa</span>
+                   
+                    
+                </div>
+                <div class="song">
+
+                    <img src="images/ar10.jpg">
+                    <span>Koi kahe kehta rahe</span>
+                    
+                    
+                </div>
+                <div class="song">
+
+                    <img src="images/ar11.jpg">
+                    <span>Mourya re</span>
+                    
+                    
+                </div>
+                <div class="song">
+
+                    <img src="images/ar12.jpg">
+                    <span>Kay sera sera</span>
+                   
+                    
+                </div>
+                <div class="song">
+
+                    <img src="images/ar13.jpg">
+                    <span>man udhan varyache</span>
+                   
+                    
+                </div>
+               
+               
+              
+            </div>
+            <div id="songplay"> 
+                <img id="simage" src="images/ar1.jpg">
+                <span id="songname">Mitwa</span>
+                <span id="ic"> <i class="fa fa-play" id="icon" aria-hidden="true"></i></span>
+                
+          </div>
+        </div>
+    </div>
+    <script>
+       
+       const music=document.querySelector("audio");
+       const icon=document.getElementById("icon");
+       const play=document.getElementById("play");
+       const img=document.getElementById("simage")
+       const sname=document.getElementById("songname");
+       const sound=document.querySelectorAll(".playlist div");
+       const songs=[
+           {
+           name:"ar1",
+           sname:"Mitwa",
+           },
+           {
+            name:"ar2",
+            sname:"Dil chahta hai",
+           },
+           {
+            name:"ar3",
+            sname:"Sajda", 
+           },
+           {
+            name:"ar4",
+            sname:"Breathless", 
+           },
+           {
+            name:"ar5",
+            sname:"Tere naina", 
+           },
+           {
+            name:"ar6",
+            sname:"Dilbaro", 
+           },
+           {
+            name:"ar7",
+            sname:"pretty women", 
+           },
+           {
+            name:"ar8",
+            sname:"Desi girl", 
+           },
+           {
+            name:"ar9",
+            sname:"Maa", 
+           },
+           {
+            name:"ar10",
+            sname:"Koi kahe kehta rahe", 
+           },
+           {
+            name:"ar11",
+            sname:"Mourya re", 
+           },
+           {
+            name:"ar12",
+            sname:"Kay sera sera", 
+           },
+           {
+            name:"ar13",
+            sname:"man udhan varyache", 
+           },
+           
+           ];
+       
+       let isplaying=false;
+       const playmusic=()=>{
+           isplaying=true;
+           music.play();
+           icon.classList.replace("fa-play","fa-pause");
+       };
+       const pausemusic=()=>{
+           isplaying=false;
+           music.pause();
+           icon.classList.replace("fa-pause","fa-play");
+       };
+       play.addEventListener("click",()=>{
+             
+             songindex=0;
+             loadsong(songs[songindex]);
+              playmusic();
+          
+       });
+       icon.addEventListener("click",()=>{
+           if(isplaying){
+               pausemusic();
+
+           }
+           else{
+               playmusic();
+           }
+       });
+
+      const loadsong=(songs)=>{
+        sname.textContent=songs.sname;
+        music.src = "songs/" + songs.name + ".mp3";
+        img.src= "images/" + songs.name + ".jpg";
+      };
+      
+      const nextsong=()=>{
+          songindex=(songindex+1)%songs.length;
+          loadsong(songs[songindex]);
+          playmusic();
+      }
+    
+      sound.forEach((song,index)=>{
+          song.addEventListener("click",function(){
+            
+            loadsong(songs[index]);
+            playmusic();
+            songindex=index;
+          })
+       
+      });
+    music.addEventListener("ended",nextsong);
+    
+    </script>
+</body>
+
+</html>

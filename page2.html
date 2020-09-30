@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <title>Artists</title>
+   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="page2.css">
+
+</head>
+
+<body>
+   <div class="maindiv">
+      <div class="container">
+         <div class="navbar">
+            <span id="wishing"></span>
+         </div>
+
+         <div class="imge">
+            <div class="image"><a href="Armaan/Armaan.html"><img src="images/armanMalik.jpg"></a></div>
+            <p><a href="Armaan/Armaan.html">Armaan Malik</a></p>
+         </div>
+         <div class="imge">
+            <div class="image"><a href="sonu/sonu.html"><img src="images/sonu-nigam4.jpg"></a></div>
+            <p><a href="sonu/sonu.html">Sonu Nigam</a></p>
+         </div>
+         <div class="imge">
+            <div class="image"><a href="Arijit/Arijit.html"><img src="images/arijit-singh.jpg"></a></div>
+            <p><a href="Arijit/Arijit.html">Arijit Singh</a></p>
+         </div>
+         <div class="imge">
+            <div class="image"><a href="shreya/Shreya.html"><img src="images/shreya-ghoshal.jpg"></a></div>
+            <p><a href="shreya/Shreya.html">Shreya Ghoshal</a></p>
+         </div>
+         <div class="imge">
+            <div class="image"><a href="honey/honey.html"><img src="images/honey.jpg"></a></div>
+            <p><a href="honey/honey.html">Honey Singh</a></p>
+         </div>
+         <div class="imge">
+            <div class="image"><a href="atif/atif.html"><img src="images/AtifAslam.jpg"></a></div>
+            <p><a href="atif/atif.html">Atif Aslam</a></p>
+         </div>
+         <div class="imge">
+            <div class="image"><a href="shirley/shirley.html"><img src="images/shirley.jpg"></a></div>
+            <p><a href="shirley/shirley.html">Shirley Setia</a></p>
+         </div>
+         <div class="imge">
+            <div class="image"><a href="shankar/shankar.html"><img src="images/Shankar-Mahadevan.jpg"></a></div>
+            <p><a href="shankar/shankar.html">Shankar Mahadevan</a></p>
+         </div>
+         <div class="imge">
+            <div class="image"><a href="sunidhi/sunidhi.html"><img src="images/sunidhiChauhan.png"></a></div>
+            <p><a href="sunidhi/sunidhi.html">Sunidhi Chauhan</a></p>
+         </div>
+         <div class="imge">
+            <div class="image"><a href="vs/vs.html"><img src="images/vishalshekhar.jpg"></a></div>
+            <p><a href="vs/vs.html">vishal shekhar</a></p>
+         </div>
+
+      </div>
+   </div>
+   <script>
+      var wish=document.getElementById("wishing");
+      var data = [
+         [22, 'Working late'],
+         [18, 'Good evening'],
+         [12, 'Good afternoon'],
+         [5, 'Good morning'],
+         [0, 'Whoa, early bird']
+      ],
+         hr = new Date().getHours();
+      for (var i = 0; i < data.length; i++) {
+         if (hr >= data[i][0]) {
+             wish.innerHTML=data[i][1];
+            break;
+         }
+      }
+   </script>
+
+</body>
+
+</html>

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arjit Singh</title>
+    <link rel="stylesheet" href="../singers.css">
+    <link rel="stylesheet" href="../all.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap" rel="stylesheet">
+   
+</head>
+
+<body>
+    <div class="maindiv">
+        <div class="container">
+            <div class="heading">
+                <h1>Arijit Singh</h1>
+            </div>
+            <div class="image">
+                <img src="images/arijit1.jpg">
+            </div>
+            <div class="bt">
+                <button id="play">Play</button>
+               
+            </div>
+            <audio src="songs/ar1.mp3">
+            </audio>
+            <div class="playlist">
+                <div class="song" >
+
+                    <img src="images/ar1.jpg">
+                    <span>Tujhe Kitna Chahne Lage</span>
+                    
+                    
+                </div>
+                <div class="song">
+
+                    <img src="images/ar2.jpg">
+                    <span>Tum hi ho</span>
+                    
+                    
+                </div>
+               <div class="song">
+
+                    <img src="images/ar3.jpg">
+                    <span>Tera yaar hoon mai</span>
+                    
+                    
+                </div>
+                <div class="song">
+
+                    <img src="images/ar4.jpg">
+                    <span>Pachtaoge</span>
+                    
+                   
+                </div>
+                <div class="song">
+
+                    <img src="images/ar5.jpg">
+                    <span>Soch na sake</span>
+                    
+                    
+                </div>
+                <div class="song">
+
+                    <img src="images/ar6.jpg">
+                    <span>Enna sona</span>
+                    
+                    
+                </div>
+                <div class="song">
+
+                    <img src="images/ar7.jpg">
+                    <span>Qaafirana</span>
+                    
+                    
+                </div>
+                <div class="song">
+
+                    <img src="images/ar8.jpg">
+                    <span>Mast Magan</span>
+                    
+                    
+                </div>
+                <div class="song">
+
+                    <img src="images/ar9.jpg">
+                    <span>Raabta</span>
+                    
+                    
+                </div>
+                <div class="song">
+
+                    <img src="images/ar10.jpg">
+                    <span>Khulke jeene ka</span>
+               
+                    
+                </div>
+                <div class="song">
+
+                    <img src="images/ar11.jpg">
+                    <span>Shayad</span>
+                    
+                    
+                </div>
+                <div class="song">
+
+                    <img src="images/ar12.jpg">
+                    <span>Samjhawan</span>
+                   
+                    
+                </div>
+                <div class="song">
+
+                    <img src="images/ar13.jpg">
+                    <span>Ve mahii</span>
+                   
+                    
+                </div>
+                <div class="song">
+
+                    <img src="images/ar14.jpg">
+                    <span>Hawayein</span>
+                   
+                    
+                </div>
+                 <div class="song">
+
+                    <img src="images/ar15.jpg">
+                    <span>Ae dil hai mushkil</span>
+                    
+                    
+                </div>
+                <div class="song">
+
+                    <img src="images/ar16.jpg">
+                    <span>Ik vaari aa</span>
+                    
+                    
+                </div>
+                <div class="song">
+
+                    <img src="images/ar17.jpg">
+                    <span>Bekhayali</span>
+                    
+                    
+                </div>
+                <div class="song">
+
+                    <img src="images/ar18.jpg">
+                    <span>Khairiyat</span>
+                    
+                   
+                </div>
+                <div class="song">
+
+                    <img src="images/ar19.jpg">
+                    <span>Pal pal dil ke paas</span>
+                    
+                   
+                </div>
+                <div class="song">
+
+                    <img src="images/ar20.jpg">
+                    <span>Pal</span>
+                    
+                    
+                </div>
+                <div class="song">
+
+                    <img src="images/ar21.jpg">
+                    <span>Dekha hazaro dafaa</span>
+                    
+                    
+                </div>
+                <div class="song">
+
+                    <img src="images/ar22.jpg">
+                    <span>Haan mai galat</span>
+                    
+                    
+                </div>
+                 <div class="song">
+
+                    <img src="images/ar23.jpg">
+                    <span>Tere hoke rahenge</span>
+                   
+                    
+                </div>
+                <div class="song">
+
+                    <img src="images/ar24.jpg">
+                    <span>Nashe si chadh gayi</span>
+                    
+                    
+                </div>
+                <div class="song">
+
+                    <img src="images/ar25.jpg">
+                    <span>Roke na ruke naina</span>
+                    
+                    
+                </div> 
+                
+            </div>
+            <div id="songplay"> 
+                <img id="simage" src="images/ar1.jpg">
+                <span id="songname">Tujhe kitna chahne lage</span>
+                <span id="ic"> <i class="fa fa-play" id="icon" aria-hidden="true"></i></span>
+                
+          </div>
+        </div>
+    </div>
+    <script>
+       
+       const music=document.querySelector("audio");
+       const icon=document.getElementById("icon");
+       const play=document.getElementById("play");
+       const img=document.getElementById("simage")
+       const sname=document.getElementById("songname");
+       const sound=document.querySelectorAll(".playlist div");
+       const songs=[
+           {
+           name:"ar1",
+           sname:"Tujhe Kitna Chahne Lage",
+           },
+           {
+            name:"ar2",
+            sname:"Tum hi ho",
+           },
+           {
+            name:"ar3",
+            sname:"Tera yaar hoon mai", 
+           },
+           {
+            name:"ar4",
+            sname:"Pachtaoge", 
+           },
+           {
+            name:"ar5",
+            sname:"Soch na sake", 
+           },
+           {
+            name:"ar6",
+            sname:"Enna sona", 
+           },
+           {
+            name:"ar7",
+            sname:"Qaafirana", 
+           },
+           {
+            name:"ar8",
+            sname:"Mast Magan", 
+           },
+           {
+            name:"ar9",
+            sname:"Raabta", 
+           },
+           {
+            name:"ar10",
+            sname:"Khulke jeene ka", 
+           },
+           {
+            name:"ar11",
+            sname:"Shayad", 
+           },
+           {
+            name:"ar12",
+            sname:"Samjhawan", 
+           },
+           {
+            name:"ar13",
+            sname:"Ve mahii", 
+           },
+           {
+            name:"ar14",
+            sname:"Hawayein", 
+           },
+           {
+            name:"ar15",
+            sname:"Ae dil hai mushkil", 
+           },
+           {
+            name:"ar16",
+            sname:"Ik vaari aa", 
+           },
+           {
+            name:"ar17",
+            sname:"Bekhayali", 
+           },
+           {
+            name:"ar18",
+            sname:"Khairiyat", 
+           },
+           {
+            name:"ar19",
+            sname:"Pal pal dil ke paas", 
+           },
+           {
+            name:"ar20",
+            sname:"Pal", 
+           },
+           {
+            name:"ar21",
+            sname:"Dekha hazaro dafaa", 
+           },
+           {
+            name:"ar22",
+            sname:"Haan mai galat", 
+           },
+           {
+            name:"ar23",
+            sname:"Tere hoke rahenge", 
+           },
+           {
+            name:"ar24",
+            sname:"Nashe si chadh gayi", 
+           },
+           {
+            name:"ar25",
+            sname:"Roke na ruke naina", 
+           },
+           ];
+       
+       let isplaying=false;
+       const playmusic=()=>{
+           isplaying=true;
+           music.play();
+           icon.classList.replace("fa-play","fa-pause");
+       };
+       const pausemusic=()=>{
+           isplaying=false;
+           music.pause();
+           icon.classList.replace("fa-pause","fa-play");
+       };
+       play.addEventListener("click",()=>{
+             
+             songindex=0;
+             loadsong(songs[songindex]);
+              playmusic();
+          
+       });
+       icon.addEventListener("click",()=>{
+           if(isplaying){
+               pausemusic();
+
+           }
+           else{
+               playmusic();
+           }
+       });
+
+      const loadsong=(songs)=>{
+        sname.textContent=songs.sname;
+        music.src = "songs/" + songs.name + ".mp3";
+        img.src= "images/" + songs.name + ".jpg";
+      };
+      
+      const nextsong=()=>{
+          songindex=(songindex+1)%songs.length;
+          loadsong(songs[songindex]);
+          playmusic();
+      }
+    
+      sound.forEach((song,index)=>{
+          song.addEventListener("click",function(){
+            
+            loadsong(songs[index]);
+            playmusic();
+            songindex=index;
+          })
+       
+      });
+    music.addEventListener("ended",nextsong);
+    
+    </script>
+</body>
+
+</html>

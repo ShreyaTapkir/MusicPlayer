@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunidhi Chauhan</title>
+    <link rel="stylesheet" href="../singers.css">
+    <link rel="stylesheet" href="../all.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap" rel="stylesheet">
+   
+</head>
+
+<body>
+    <div class="maindiv">
+        <div class="container">
+            <div class="heading">
+                <h1>Sunidhi Chauhan</h1>
+            </div>
+            <div class="image">
+                <img src="images/sunidhi.jpg">
+            </div>
+            <div class="bt">
+                <button id="play">Play</button>
+               
+            </div>
+            <audio src="songs/ar1.mp3">
+            </audio>
+            <div class="playlist">
+                <div class="song" >
+
+                    <img src="images/ar1.jpg">
+                    <span>Lae dooba</span>
+                    
+                    
+                </div>
+                <div class="song">
+
+                    <img src="images/ar2.jpg">
+                    <span>kamli</span>
+                    
+                    
+                </div>
+               <div class="song">
+
+                    <img src="images/ar3.jpg">
+                    <span>Darkhaast</span>
+                    
+                    
+                </div>
+                <div class="song">
+
+                    <img src="images/ar4.jpg">
+                    <span>Halka halka</span>
+                   
+                </div>
+                <div class="song">
+
+                    <img src="images/ar5.jpg">
+                    <span>Crazy kiya re</span>
+                   
+                    
+                </div>
+                <div class="song">
+
+                    <img src="images/ar6.jpg">
+                    <span>Bin tere</span>
+                    
+                </div>
+                <div class="song">
+
+                    <img src="images/ar7.jpg">
+                    <span>Surili Akhiyon wale</span>
+                    
+                    
+                </div>
+                <div class="song">
+
+                    <img src="images/ar8.jpg">
+                    <span>Sajde</span>
+                    
+                    
+                </div>
+                <div class="song">
+
+                    <img src="images/ar9.jpg">
+                    <span>Sheila ki jawani</span>
+                   
+                    
+                </div>
+                <div class="song">
+
+                    <img src="images/ar10.jpg">
+                    <span>Te amo</span>
+                    
+                    
+                </div>
+                <div class="song">
+
+                    <img src="images/ar11.jpg">
+                    <span>Navrai majhi</span>
+                    
+                    
+                </div>
+                <div class="song">
+
+                    <img src="images/ar12.jpg">
+                    <span>Hey shonaa</span>
+                   
+                    
+                </div>
+                <div class="song">
+
+                    <img src="images/ar13.jpg">
+                    <span>Ishq sufiyana</span>
+                   
+                    
+                </div>
+               
+               
+              
+            </div>
+            <div id="songplay"> 
+                <img id="simage" src="images/ar1.jpg">
+                <span id="songname">Lae dooba</span>
+                <span id="ic"> <i class="fa fa-play" id="icon" aria-hidden="true"></i></span>
+                
+          </div>
+        </div>
+    </div>
+    <script>
+       
+       const music=document.querySelector("audio");
+       const icon=document.getElementById("icon");
+       const play=document.getElementById("play");
+       const img=document.getElementById("simage")
+       const sname=document.getElementById("songname");
+       const sound=document.querySelectorAll(".playlist div");
+       const songs=[
+           {
+           name:"ar1",
+           sname:"Lae dooba",
+           },
+           {
+            name:"ar2",
+            sname:"kamli",
+           },
+           {
+            name:"ar3",
+            sname:"Darkhaast", 
+           },
+           {
+            name:"ar4",
+            sname:"Halka halka", 
+           },
+           {
+            name:"ar5",
+            sname:"Crazy kiya re", 
+           },
+           {
+            name:"ar6",
+            sname:"Bin tere", 
+           },
+           {
+            name:"ar7",
+            sname:"Surili Akhiyon wale", 
+           },
+           {
+            name:"ar8",
+            sname:"Sajde", 
+           },
+           {
+            name:"ar9",
+            sname:"Sheila ki jawani", 
+           },
+           {
+            name:"ar10",
+            sname:"Te amo", 
+           },
+           {
+            name:"ar11",
+            sname:"Navrai majhi", 
+           },
+           {
+            name:"ar12",
+            sname:"Hey shonaa", 
+           },
+           {
+            name:"ar13",
+            sname:"Ishq sufiyana", 
+           },
+           
+           ];
+       
+       let isplaying=false;
+       const playmusic=()=>{
+           isplaying=true;
+           music.play();
+           icon.classList.replace("fa-play","fa-pause");
+       };
+       const pausemusic=()=>{
+           isplaying=false;
+           music.pause();
+           icon.classList.replace("fa-pause","fa-play");
+       };
+       play.addEventListener("click",()=>{
+             
+             songindex=0;
+             loadsong(songs[songindex]);
+              playmusic();
+          
+       });
+       icon.addEventListener("click",()=>{
+           if(isplaying){
+               pausemusic();
+
+           }
+           else{
+               playmusic();
+           }
+       });
+
+      const loadsong=(songs)=>{
+        sname.textContent=songs.sname;
+        music.src = "songs/" + songs.name + ".mp3";
+        img.src= "images/" + songs.name + ".jpg";
+      };
+      
+      const nextsong=()=>{
+          songindex=(songindex+1)%songs.length;
+          loadsong(songs[songindex]);
+          playmusic();
+      }
+    
+      sound.forEach((song,index)=>{
+          song.addEventListener("click",function(){
+            
+            loadsong(songs[index]);
+            playmusic();
+            songindex=index;
+          })
+       
+      });
+    music.addEventListener("ended",nextsong);
+    
+    </script>
+</body>
+
+</html>

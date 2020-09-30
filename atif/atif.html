@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atif Aslam</title>
+    <link rel="stylesheet" href="../singers.css">
+    <link rel="stylesheet" href="../all.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap" rel="stylesheet">
+   
+</head>
+
+<body>
+    <div class="maindiv">
+        <div class="container">
+            <div class="heading">
+                <h1>Atif Aslam</h1>
+            </div>
+            <div class="image">
+                <img src="images/atif.jpg">
+            </div>
+            <div class="bt">
+                <button id="play">Play</button>
+               
+            </div>
+            <audio src="songs/ar1.mp3">
+            </audio>
+            <div class="playlist">
+                <div class="song" >
+
+                    <img src="images/ar1.jpg">
+                    <span>Tu jaane naa</span>
+                    
+                    
+                </div>
+                <div class="song">
+
+                    <img src="images/ar2.jpg">
+                    <span>Jeene laga hoon</span>
+                    
+                    
+                </div>
+               <div class="song">
+
+                    <img src="images/ar3.jpg">
+                    <span>Pehli dafa</span>
+                    
+                    
+                </div>
+                <div class="song">
+
+                    <img src="images/ar4.jpg">
+                    <span>O saathi</span>
+                   
+                </div>
+                <div class="song">
+
+                    <img src="images/ar5.jpg">
+                    <span>Jeena jeena</span>
+                   
+                    
+                </div>
+                <div class="song">
+
+                    <img src="images/ar6.jpg">
+                    <span>Main rang sharbaton ka</span>
+                    
+                </div>
+                <div class="song">
+
+                    <img src="images/ar7.jpg">
+                    <span>Tere sang yaara</span>
+                    
+                    
+                </div>
+                <div class="song">
+
+                    <img src="images/ar8.jpg">
+                    <span>Rang jo lagyo</span>
+                    
+                    
+                </div>
+                <div class="song">
+
+                    <img src="images/ar9.jpg">
+                    <span>Be intehaan</span>
+                   
+                    
+                </div>
+                <div class="song">
+
+                    <img src="images/ar10.jpg">
+                    <span>Jab koi baat</span>
+                    
+                    
+                </div>
+                <div class="song">
+
+                    <img src="images/ar11.jpg">
+                    <span>Tera hone laga hoon</span>
+                    
+                    
+                </div>
+                <div class="song">
+
+                    <img src="images/ar12.jpg">
+                    <span>Wo lamhe woh baatein</span>
+                   
+                    
+                </div>
+                <div class="song">
+
+                    <img src="images/ar13.jpg">
+                    <span>Dil diyaan gallan</span>
+                   
+                    
+                </div>
+                <div class="song">
+
+                    <img src="images/ar14.jpg">
+                    <span>Dekhte dekhte</span>
+                   
+                    
+                </div>
+               
+              
+            </div>
+            <div id="songplay"> 
+                <img id="simage" src="images/ar1.jpg">
+                <span id="songname">Tu jaane naa</span>
+                <span id="ic"> <i class="fa fa-play" id="icon" aria-hidden="true"></i></span>
+                
+          </div>
+        </div>
+    </div>
+    <script>
+       
+       const music=document.querySelector("audio");
+       const icon=document.getElementById("icon");
+       const play=document.getElementById("play");
+       const img=document.getElementById("simage")
+       const sname=document.getElementById("songname");
+       const sound=document.querySelectorAll(".playlist div");
+       const songs=[
+           {
+           name:"ar1",
+           sname:"Tu jaane naa",
+           },
+           {
+            name:"ar2",
+            sname:"Jeene laga hoon",
+           },
+           {
+            name:"ar3",
+            sname:"Pehli dafa", 
+           },
+           {
+            name:"ar4",
+            sname:"O saathi", 
+           },
+           {
+            name:"ar5",
+            sname:"Jeena jeena", 
+           },
+           {
+            name:"ar6",
+            sname:"Main rang sharbaton ka", 
+           },
+           {
+            name:"ar7",
+            sname:"Tere sang yaara", 
+           },
+           {
+            name:"ar8",
+            sname:"Rang jo lagyo", 
+           },
+           {
+            name:"ar9",
+            sname:"Be intehaan", 
+           },
+           {
+            name:"ar10",
+            sname:"Jab koi baat", 
+           },
+           {
+            name:"ar11",
+            sname:"Tera hone laga hoon", 
+           },
+           {
+            name:"ar12",
+            sname:"Wo lamhe woh baatein", 
+           },
+           {
+            name:"ar13",
+            sname:"Dil diyaan gallan", 
+           },
+           {
+            name:"ar14",
+            sname:"Dekhte dekhte", 
+           },
+           
+           ];
+       
+       let isplaying=false;
+       const playmusic=()=>{
+           isplaying=true;
+           music.play();
+           icon.classList.replace("fa-play","fa-pause");
+       };
+       const pausemusic=()=>{
+           isplaying=false;
+           music.pause();
+           icon.classList.replace("fa-pause","fa-play");
+       };
+       play.addEventListener("click",()=>{
+             
+             songindex=0;
+             loadsong(songs[songindex]);
+              playmusic();
+          
+       });
+       icon.addEventListener("click",()=>{
+           if(isplaying){
+               pausemusic();
+
+           }
+           else{
+               playmusic();
+           }
+       });
+
+      const loadsong=(songs)=>{
+        sname.textContent=songs.sname;
+        music.src = "songs/" + songs.name + ".mp3";
+        img.src= "images/" + songs.name + ".jpg";
+      };
+      
+      const nextsong=()=>{
+          songindex=(songindex+1)%songs.length;
+          loadsong(songs[songindex]);
+          playmusic();
+      }
+    
+      sound.forEach((song,index)=>{
+          song.addEventListener("click",function(){
+            
+            loadsong(songs[index]);
+            playmusic();
+            songindex=index;
+          })
+       
+      });
+    music.addEventListener("ended",nextsong);
+    
+    </script>
+</body>
+
+</html>
